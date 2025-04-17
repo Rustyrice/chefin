@@ -1,4 +1,9 @@
 import React, { useState } from 'react'
+import {
+  getVisibleReviews,
+  formatReviewDate,
+  shouldTruncateComment,
+} from '../utils/ReviewsSection'
 
 const ReviewsSection = ({ reviews, averageRating }) => {
   const [expandedReviews, setExpandedReviews] = useState({})
@@ -17,7 +22,7 @@ const ReviewsSection = ({ reviews, averageRating }) => {
 
       {/* Reviews Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
-        {(showAll ? reviews : reviews.slice(0, 6)).map((review) => (
+        {getVisibleReviews(reviews, showAll).map((review) => (
           <div key={review.id} className="border-b pb-4">
             {/* Reviewer Info */}
             <div className="flex items-center mb-2">
@@ -29,19 +34,16 @@ const ReviewsSection = ({ reviews, averageRating }) => {
               <div>
                 <p className="font-semibold">{review.reviewer_name}</p>
                 <p className="text-gray-500 text-sm">
-                  {new Date(review.review_date).toLocaleString('en-GB', {
-                    month: 'long',
-                    year: 'numeric',
-                  })}
+                  {formatReviewDate(review.review_date)}
                 </p>
               </div>
             </div>
 
             {/* Review Comment */}
             <p className="text-gray-700">
-              {expandedReviews[review.id] || review.comment.length <= 100
-                ? review.comment
-                : `${review.comment.substring(0, 100)}...`}
+              {shouldTruncateComment(review.comment)
+                ? review.comment.substring(0, 100) + '...'
+                : review.comment}
             </p>
 
             {review.comment.length > 100 && (

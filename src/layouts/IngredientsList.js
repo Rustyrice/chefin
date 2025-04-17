@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { formatIngredientText } from '../utils/IngredientsList'
 
 const IngredientsList = ({ ingredients }) => {
   const [showIngredients, setShowIngredients] = useState(false)
@@ -22,7 +23,7 @@ const IngredientsList = ({ ingredients }) => {
       >
         {ingredients.map((ingredient, index) => (
           <li key={index} className="text-gray-600">
-            {ingredient.quantity} - {ingredient.name}
+            {formatIngredientText(ingredient)}
           </li>
         ))}
       </ul>

@@ -1,24 +1,26 @@
 import React, { useState, useEffect } from 'react'
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import supabase from '../client/client.js'
+import { getUniqueCuisines } from '../utils/Filter.js'
 
 const Filter = ({ onFilterSelect }) => {
-  const [cuisines, setCuisines] = useState([])
-  const [selectedCuisine, setSelectedCuisine] = useState(null)
+  const [cuisines, setCuisines] = useState([]) // Holds the list of unique cuisine options
+  const [selectedCuisine, setSelectedCuisine] = useState(null) // Currently selected cuisine
 
+  // Fetch the list of cuisine types from the database when the component first mounts
   useEffect(() => {
     const fetchCuisines = async () => {
       const { data, error } = await supabase
-        .from('dish_listings')
-        .select('cuisine')
+        .from('dish_listings') // Query the dish_listings table
+        .select('cuisine') // Select only the cuisine column
 
       if (error) {
         console.error('Error fetching cuisines:', error)
         return
       }
 
-      // Extract unique cuisines
-      const uniqueCuisines = [...new Set(data.map((meal) => meal.cuisine))]
+      // Remove duplicates by converting to a Set, then back to an array
+      const uniqueCuisines = getUniqueCuisines(data)
       setCuisines(uniqueCuisines)
     }
 

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { calculateTotalPrice } from '../utils/CalculateTotalPrice'
 
 const BookingSection = ({ meal }) => {
   const [selectedDate, setSelectedDate] = useState('')
@@ -39,7 +40,7 @@ const BookingSection = ({ meal }) => {
         selectedDate: formattedSelectedDate,
         selectedSlot: slot, // Pass the selected time slot
         guestCount,
-        totalPrice: slot.price * guestCount, // Calculate price based on guests
+        totalPrice: calculateTotalPrice(slot.price * guestCount), // Calculate price based on guests
       },
     })
   }

@@ -13,6 +13,7 @@ import HomePage from './pages/HomePage'
 import MealProfilePage from './pages/MealProfilePage'
 import ConfirmBooking from './pages/ConfirmationPage'
 import SafetyGuidelines from './pages/SafetyGuidelinesPage'
+import Terms from './pages/TermsPage'
 import ErrorPage from './ErrorPage'
 
 const container = document.getElementById('root')
@@ -27,6 +28,7 @@ root.render(
         <Route path="/meal/:id" element={<MealProfilePage />} />
         <Route path="/confirm-booking" element={<ConfirmBooking />} />
         <Route path="/safety-guidelines" element={<SafetyGuidelines />} />
+        <Route path="/terms" element={<Terms />} />
         <Route path="/error" element={<ErrorPage />} />
       </Routes>
     </Router>

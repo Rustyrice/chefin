@@ -278,19 +278,18 @@ const Navbar = () => {
 
         {/* search and filter for mobile layout  */}
         <div className="md:hidden">
-          <div className="p-2 flex flex-row items-center">
-            <div className="flex flex-1 text-center bg-white px-2 py-2 border rounded-full mr-2 shadow-lg">
-              <button className="flex items-center text-black p-2 rounded-full">
-                <AiOutlineSearch />
-              </button>
-              <input
-                type="text"
-                placeholder="Where?"
-                className="bg-transparent outline-none flex-1"
-              />
-            </div>
-            <button className="flex items-center p-2 border border-gray-500 rounded-full">
-              <IoFilter />
+          <div className="p-2 flex flex-row justify-around space-x-2">
+            <button
+              className="flex items-center px-4 py-2 bg-green-500 text-white font-semibold rounded-full shadow-md hover:bg-green-600 transition duration-200"
+              onClick={() => navigate('/terms')}
+            >
+              Terms and Conditions
+            </button>
+            <button
+              className="flex items-center px-4 py-2 bg-green-500 text-white font-semibold rounded-full shadow-md hover:bg-green-600 transition duration-200"
+              onClick={() => navigate('/safety-guidelines')}
+            >
+              Safety Guidelines
             </button>
           </div>
         </div>
@@ -298,7 +297,7 @@ const Navbar = () => {
         <div className="text-center">
           <ul className="flex items-center justify-end list-none">
             {/* Mobile and tablet layout */}
-            {isBottomBarVisible && (
+            {/* {isBottomBarVisible && (
               <motion.div
                 className="fixed bottom-0 left-0 right-0 bg-white p-3 flex justify-around items-center lg:hidden border-t-2 border-gray-200"
                 initial={{ opacity: 0, y: 30 }}
@@ -357,9 +356,9 @@ const Navbar = () => {
                     onClick={() => setSidebarOpen(true)}
                   />
                   <p className="text-xs text-gray-500">More</p>
-                </div> */}
-              </motion.div>
-            )}
+                </div> 
+              </motion.div> 
+            )} */}
 
             {/* Laptop and desktop layout */}
             <div className="hidden md:flex items-center justify-center">
@@ -484,6 +483,32 @@ const Navbar = () => {
                     onClick={() => navigate('/safety-guidelines')}
                   >
                     Safety Guidelines
+                  </button>
+                </motion.li>
+              </div>
+              <div className="hidden md:flex items-center space-x-4">
+                <motion.li>
+                  <button
+                    className="
+                        inline-block
+                        px-4
+                        py-2
+                        text-sm
+                        font-bold
+                        leading-relaxed
+                        text-white
+                        uppercase
+                        transition-colors
+                        duration-200
+                        transform
+                        bg-green-400
+                        rounded
+                        hover:bg-green-500
+                        ml-6
+                      "
+                    onClick={() => navigate('/terms')}
+                  >
+                    Terms & Conditions
                   </button>
                 </motion.li>
               </div>

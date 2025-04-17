@@ -4,6 +4,7 @@ import supabase from '../client/client.js'
 import Navbar from '../layouts/Navbar'
 import Footer from '../layouts/Footer'
 import Breadcrumbs from '../layouts/Breadcrumbs'
+import { calculateTotalPrice } from '../utils/CalculateTotalPrice.js'
 
 const ConfirmBooking = () => {
   const location = useLocation()
@@ -12,6 +13,7 @@ const ConfirmBooking = () => {
     location.state || {}
 
   const [showModal, setShowModal] = useState(false)
+  const [showConfirmation, setShowConfirmation] = useState(false)
 
   if (!meal || !selectedDate || !selectedSlot) {
     return (
@@ -23,7 +25,7 @@ const ConfirmBooking = () => {
 
   const handleConfirmBooking = async () => {
     try {
-      // check that selectedSlot.time exists and is valid
+      // Check that selectedSlot.time exists and is valid
       if (!selectedSlot || !selectedSlot.start_time || !selectedSlot.end_time) {
         alert('Invalid time slot. Please try again.')
         return
@@ -37,7 +39,7 @@ const ConfirmBooking = () => {
           start_time: selectedSlot.start_time,
           end_time: selectedSlot.end_time,
           guest_count: guestCount,
-          total_price: totalPrice,
+          total_price: calculateTotalPrice(meal.price, guestCount),
         },
       ])
 
@@ -75,7 +77,10 @@ const ConfirmBooking = () => {
 
           <div className="mt-4">
             <h2 className="text-xl font-semibold">Price Details</h2>
-            <p>Total Price: £{totalPrice.toFixed(2)}</p>
+            <p>
+              Total Price: £
+              {calculateTotalPrice(meal.price, guestCount).toFixed(2)}
+            </p>
           </div>
 
           <div className="mt-6">
@@ -89,7 +94,7 @@ const ConfirmBooking = () => {
 
           <button
             className="mt-6 w-full bg-green-400 text-white font-bold py-2 rounded-md"
-            onClick={handleConfirmBooking}
+            onClick={() => setShowConfirmation(true)}
           >
             Confirm and Pay
           </button>
@@ -97,7 +102,34 @@ const ConfirmBooking = () => {
       </div>
       <Footer />
 
-      {/* Confirmation modal */}
+      {/* Payment Confirmation Modal */}
+      {showConfirmation && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="bg-white p-6 shadow-md rounded-md w-96 text-center">
+            <h2 className="text-2xl font-bold mb-4">Confirm Payment</h2>
+            <p>Are you sure you want to proceed with the payment?</p>
+            <div className="mt-4 flex justify-center space-x-4">
+              <button
+                className="bg-green-400 text-white font-bold py-2 px-4 rounded-md"
+                onClick={() => {
+                  setShowConfirmation(false)
+                  handleConfirmBooking()
+                }}
+              >
+                Yes, Confirm
+              </button>
+              <button
+                className="bg-red-600 text-white font-bold py-2 px-4 rounded-md"
+                onClick={() => setShowConfirmation(false)}
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Booking Confirmation Modal */}
       {showModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
           <div className="bg-white p-6 shadow-md rounded-md w-96 text-center">
