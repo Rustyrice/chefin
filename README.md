@@ -4,20 +4,11 @@ Chefin is a community-driven platform that connects users with home cooks offeri
 
 Features
 
-For Users
-
 ✅ Browse a wide selection of home-cooked meals \
 ✅ Filter dishes by cuisine, price range, or location \
 ✅ View detailed dish descriptions, ingredients, and images \
 ✅ Read host bios and check user reviews \
 ✅ Book meal experiences with available date selections
-
-For Hosts
-
-✅ List homemade dishes with descriptions, pricing, and availability \
-✅ Set custom price categories and dietary preferences \
-✅ Manage bookings and interact with diners \
-✅ Gain credibility through reviews and ratings
 
 Tech Stack \
 • Backend: PostgreSQL \
