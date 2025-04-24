@@ -4,19 +4,23 @@ import { createClient } from '@supabase/supabase-js'
 jest.mock('@supabase/supabase-js', () => ({
   createClient: jest.fn(() => ({
     from: jest.fn(() => ({
-      insert: jest.fn(() => Promise.resolve({
-        data: [{ id: 1, guest_count: 2, dish_id: 123 }],
-        error: null,
-      })),
-      select: jest.fn(() => Promise.resolve({
-        data: [{ id: 1, guest_count: 2, dish_id: 123 }],
-        error: null,
-      })),
+      insert: jest.fn(() =>
+        Promise.resolve({
+          data: [{ id: 1, guest_count: 2, dish_id: 123 }],
+          error: null,
+        }),
+      ),
+      select: jest.fn(() =>
+        Promise.resolve({
+          data: [{ id: 1, guest_count: 2, dish_id: 123 }],
+          error: null,
+        }),
+      ),
     })),
   })),
 }))
 
-describe('Supabase Integration (Mocked)', () => {
+describe('Supabase Mocked', () => {
   const supabase = createClient()
 
   test('inserts a booking record successfully', async () => {
