@@ -2,14 +2,6 @@ Overview
 
 Chefin is a community-driven platform that connects users with home cooks offering authentic, home-cooked meals. Users can explore a variety of dishes, book unique dining experiences, and enjoy diverse cuisines prepared by passionate hosts in their local area.
 
-Features
-
-✅ Browse a wide selection of home-cooked meals \
-✅ Filter dishes by cuisine, price range, or location \
-✅ View detailed dish descriptions, ingredients, and images \
-✅ Read host bios and check user reviews \
-✅ Book meal experiences with available date selections
-
 Tech Stack \
 • Backend: PostgreSQL \
 • Frontend: React.js
