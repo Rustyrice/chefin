@@ -24,7 +24,7 @@ cd chefin
 To set up the schema and seed data:
 
 ```bash
-psql -U your_user -d your_database -f migrations/init.sql
+psql -U Rustyrice -d chefin -f migrations/init.sql
 ```
 
 Or, if you're using Supabase CLI:
@@ -36,7 +36,7 @@ supabase db reset
 ### 3. (Optional) Load seed data separately
 
 ```bash
-psql -U your_user -d your_database -f seed/seed_data.sql
+psql -U Rustyrice -d chefin -f seed/seed_data.sql
 ```
 
 ## Available Scripts
