@@ -12,11 +12,32 @@ Tech Stack \
 
 This project is designed for use with [Supabase](https://supabase.com/) but can also be deployed in a standalone PostgreSQL instance.
 
-### 1. Clone the repository
+### 1. Cline the repository
 
 ```bash
-git clone https://github.com/yourusername/chefin.git
+git clone https://github.com/Rustyrice/chefin.git
 cd chefin
+```
+
+### 2. Initialise the database
+
+To set up the schema and seed data:
+
+```bash
+psql -U your_user -d your_database -f migrations/init.sql
+```
+
+Or, if you're using Supabase CLI:
+
+```bash
+supabase db reset
+```
+
+### 3. (Optional) Load seed data separately
+
+```bash
+psql -U your_user -d your_database -f seed/seed_data.sql
+```
 
 ## Available Scripts
 
@@ -94,4 +115,3 @@ We welcome contributions from developers! Feel free to fork this repo, submit is
 # License
 
 MIT License. See LICENSE for more details.
-```
