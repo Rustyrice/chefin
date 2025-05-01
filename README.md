@@ -8,9 +8,15 @@ Tech Stack \
 
 <img src="public/logo_name.png" alt="Chefin Logo" width="100%">
 
-# Getting Started with Create React App
+# Setup Instructions
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is designed for use with [Supabase](https://supabase.com/) but can also be deployed in a standalone PostgreSQL instance.
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/yourusername/chefin.git
+cd chefin
 
 ## Available Scripts
 
@@ -88,3 +94,4 @@ We welcome contributions from developers! Feel free to fork this repo, submit is
 # License
 
 MIT License. See LICENSE for more details.
+```
