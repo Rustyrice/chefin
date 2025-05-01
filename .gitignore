@@ -1,6 +1,16 @@
-/.env
-/.env.test
-node_modules
-.DS_store
+# dependencies
+/node_modules
+
+# testing
+/coverage
+
+# production
+/build
+
+# environment variables
+.env
+.env.test
+
+# misc
+.DS_Store
 .vscode
-coverage

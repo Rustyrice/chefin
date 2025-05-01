@@ -1,9 +1,12 @@
 # Chefin
+
 A community-driven platform that connects university students with student home cooks offering authentic, home-cooked meals - a BSc Computer Science dissertation (2024-25)
 
 Tech Stack \
 • Backend: PostgreSQL \
 • Frontend: React.js
+
+<img src="public/logo_name.png" alt="Chefin Logo" width="200">
 
 # Getting Started with Create React App
 
