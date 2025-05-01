@@ -6,7 +6,7 @@ Tech Stack \
 • Backend: PostgreSQL \
 • Frontend: React.js
 
-<img src="public/logo_name.png" alt="Chefin Logo" width="200">
+<img src="public/logo_name.png" alt="Chefin Logo" width="100%">
 
 # Getting Started with Create React App
 
