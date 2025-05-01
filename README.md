@@ -1,6 +1,5 @@
-Overview
-
-Chefin is a community-driven platform that connects users with home cooks offering authentic, home-cooked meals. Users can explore a variety of dishes, book unique dining experiences, and enjoy diverse cuisines prepared by passionate hosts in their local area.
+# Chefin
+A community-driven platform that connects university students with student home cooks offering authentic, home-cooked meals - a BSc Computer Science dissertation (2024-25)
 
 Tech Stack \
 • Backend: PostgreSQL \
